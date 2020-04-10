@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  test:
+  test1:
 
     runs-on: ubuntu-latest
     timeout-minutes: 3000
@@ -21,7 +21,25 @@ jobs:
         run:
           env
     
-      - name: Run only in master branch
-        if: github.ref == 'refs/heads/master'
+  test2:
+
+    if: github.ref == 'refs/heads/master'
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3000
+
+    steps:
+      - name: Only Run in master branch
         run:
           echo "hello 'refs/heads/master' branch"
+
+  test3:
+    needs:
+      - test1
+      - test2
+
+    steps:
+      - name: Only run if test1 and test2 succeed
+        run:
+          echo "run test3"
+
