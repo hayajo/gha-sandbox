@@ -38,6 +38,9 @@ jobs:
       - test1
       - test2
 
+    runs-on: ubuntu-latest
+    timeout-minutes: 3000
+
     steps:
       - name: Only run if test1 and test2 succeed
         run:
