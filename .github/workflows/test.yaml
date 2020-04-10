@@ -21,6 +21,14 @@ jobs:
         run:
           env
 
+      - name: Run mutli-line command
+        run: |
+          echo \
+            "hoge" \
+            "fuga" \
+            "piyo"
+          echo foo bar baz
+
   test2:
 
     if: github.ref == 'refs/heads/master'
@@ -57,4 +65,3 @@ jobs:
       - name: Only run if test1 and test2 succeed
         run:
           echo "test1 was succeed. run test4"
-
