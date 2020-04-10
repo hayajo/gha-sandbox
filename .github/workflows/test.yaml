@@ -17,7 +17,7 @@ jobs:
         run: pwd
 
       - name: Print ENV
-        run: env
+        run: env | sort
 
       - name: Run mutli-line command
         run: |
@@ -28,13 +28,16 @@ jobs:
           echo foo bar baz
 
       - name: set HOGE env
-        run: echo "::set-env name=HOGE::hogehoge,name=FUGA::fugafuga,name=PIYO::piyopiyo"
+        run: |
+          echo "::set-env name=HOGE::hogehoge"
+          echo "::set-env name=FUGA::fugafuga"
+          echo "::set-env name=PIYO::piyopiyo"
 
       - name: check HOGE env
-        run: test -n "${HOGE}"
+        run: test -n "${HOGE}" && echo "${HOGE}"
 
       - name: Print ENV
-        run: env
+        run: env | sort
 
   test2:
 
