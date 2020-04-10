@@ -20,7 +20,7 @@ jobs:
       - name: Print ENV
         run:
           env
-    
+
   test2:
 
     if: github.ref == 'refs/heads/master'
@@ -44,5 +44,17 @@ jobs:
     steps:
       - name: Only run if test1 and test2 succeed
         run:
-          echo "run test3"
+          echo "test1 and test2 was succeed. run test3"
+
+  test4:
+    needs:
+      - test1
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3000
+
+    steps:
+      - name: Only run if test1 and test2 succeed
+        run:
+          echo "test1 was succeed. run test4"
 
