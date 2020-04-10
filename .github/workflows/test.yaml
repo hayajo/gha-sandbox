@@ -13,7 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Echo GITHUB_SHA
+      - name: Check PWD
         run:
           pwd
-          echo "${GITHUB_SHA}"
+
+      - name: Print ENV
+        run:
+          env
+    
+      - name: Run only in master branch
+        if: github.ref == 'refs/heads/master'
+        run:
+          echo "hello 'refs/heads/master' branch"
