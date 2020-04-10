@@ -1,0 +1,19 @@
+name: Test GHA
+
+on:
+  - push
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3000
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Echo GITHUB_SHA
+        run:
+          pwd
+          echo "${GITHUB_SHA}"
