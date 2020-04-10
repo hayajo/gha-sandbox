@@ -21,7 +21,7 @@ jobs:
         run:
           env
 
-      - name: Print ENV
+      - name: Run mutli-line command
         run: |
           echo \
             "hoge" \
