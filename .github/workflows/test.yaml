@@ -75,3 +75,19 @@ jobs:
       - name: Only run if test1 and test2 succeed
         run:
           echo "test1 was succeed. run test4"
+
+  test5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3000
+    env:
+      DOCKER_BUILDKIT: 1
+
+    steps:
+      - name: Who will run
+        run: whoami
+
+      - name: Check `/var/lib/docker`
+        run:
+          ls -l /var/lib/docker
+          du -sh /var/lib/docker
+
