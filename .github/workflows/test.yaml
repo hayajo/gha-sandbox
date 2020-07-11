@@ -92,13 +92,6 @@ jobs:
       - name: Who will run
         run: whoami
 
-      - name: Check `/var/lib/docker`
-        run:
-          sudo ls -l /var/lib/docker
-
-      - name: Check size of `/var/lib/docker`
-        run:
-          sudo du -sh /var/lib/docker
       - name: print docker version
         run: docker version
 
@@ -110,5 +103,8 @@ jobs:
 
       - name: Check `/var/lib/docker`
         run:
-          ls -l /var/lib/docker
-          du -sh /var/lib/docker
+          sudo ls -l /var/lib/docker
+
+      - name: Check size of `/var/lib/docker`
+        run:
+          sudo du -sh /var/lib/docker
