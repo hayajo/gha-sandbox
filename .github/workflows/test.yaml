@@ -85,9 +85,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3000
 
+    env:
+      DOCKER_BUILDKIT: 1
+
     steps:
       - name: Who will run
         run: whoami
+
+      - name: print docker version
+        run: docker version
+
+      - name: print docker info
+        run: docker info
+
+      - name: print docker images
+        run: docker images
 
       - name: Check `/var/lib/docker`
         run:
