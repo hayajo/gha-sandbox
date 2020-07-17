@@ -1,0 +1,24 @@
+name: Hoge Workflow
+
+on:
+  - push
+
+env:
+  COMPOSE_DOCKER_CLI_BUILD: 1
+  DOCKER_BUILDKIT: 1
+  BUILDKIT_PROGRESS: plain
+
+jobs:
+
+  test1:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3000
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Hello World
+        run: |
+          echo hello world
+
